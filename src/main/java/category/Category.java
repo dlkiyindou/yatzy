@@ -5,7 +5,6 @@ import roll.Roll;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -46,7 +45,6 @@ public enum Category {
 
         }
     },
-
     THREE_OF_A_KIND {
         @Override
         public int compute(Roll roll) {
@@ -59,21 +57,18 @@ public enum Category {
             return xOfAKind(4, roll);
         }
     },
-
     SMALL_STRAIGHT {
         @Override
         public int compute(Roll roll) {
             return groupByValues(roll).values().stream().allMatch(v -> v == 1) ? 15 : 0;
         }
     },
-
     LARGE_STRAIGHT {
         @Override
         public int compute(Roll roll) {
             return groupByValues(roll).values().stream().allMatch(v -> v == 1) ? 20 : 0;
         }
     },
-
     FULL_HOUSE {
         @Override
         public int compute(Roll roll) {
