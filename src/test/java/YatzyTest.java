@@ -1,4 +1,7 @@
+import category.Category;
 import org.junit.jupiter.api.Test;
+import player.Player;
+import roll.Roll;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -104,5 +107,19 @@ public class YatzyTest {
     public void test_fullHouse() {
         assertEquals(18, Yatzy.fullHouse(6,2,2,2,6));
         assertEquals(0, Yatzy.fullHouse(2,3,4,5,6));
+    }
+
+    @Test
+    public void test_play() {
+        Player player = Player.builder().build();
+        Roll rollFullHouse = new Roll(6,2,2,2,6); // 18
+        Roll rollLargeStraight = new Roll(6,2,3,4,5); // 20
+        Roll rollSmallStraight = new Roll(1,2,2,4,5); // 0
+
+        player.handleRoll(Category.FULL_HOUSE, rollFullHouse);
+        player.handleRoll(Category.LARGE_STRAIGHT, rollLargeStraight);
+        player.handleRoll(Category.SMALL_STRAIGHT, rollSmallStraight);
+
+        assertEquals(38, player.getScore());
     }
 }

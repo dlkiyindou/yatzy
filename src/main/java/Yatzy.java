@@ -1,3 +1,4 @@
+import category.Category;
 import roll.Roll;
 
 public class Yatzy {

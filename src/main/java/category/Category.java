@@ -1,3 +1,5 @@
+package category;
+
 import roll.Roll;
 
 import java.util.HashMap;
