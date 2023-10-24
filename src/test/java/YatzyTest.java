@@ -1,5 +1,6 @@
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class YatzyTest {
 
@@ -16,7 +17,7 @@ public class YatzyTest {
     }
 
     @Test public void test_ones() {
-        assertTrue(Yatzy.ones(1,2,3,4,5) == 1);
+        assertEquals(1, Yatzy.ones(1,2,3,4,5));
         assertEquals(2, Yatzy.ones(1,2,1,4,5));
         assertEquals(0, Yatzy.ones(6,2,2,4,5));
         assertEquals(4, Yatzy.ones(1,2,1,1,1));
@@ -58,16 +59,16 @@ public class YatzyTest {
 
     @Test
     public void test_onePair() {
-        assertEquals(6, Yatzy.score_pair(3,4,3,5,6));
-        assertEquals(10, Yatzy.score_pair(5,3,3,3,5));
-        assertEquals(12, Yatzy.score_pair(5,3,6,6,5));
+        assertEquals(6, Yatzy.onePair(3,4,3,5,6));
+        assertEquals(10, Yatzy.onePair(5,3,3,3,5));
+        assertEquals(12, Yatzy.onePair(5,3,6,6,5));
     }
 
     @Test
     public void test_twoPair() {
-        assertEquals(16, Yatzy.two_pair(3,3,5,4,5));
-        assertEquals(16, Yatzy.two_pair(3,3,5,5,5));
-        assertEquals(9, Yatzy.threeOfAKind(3,3,3,3,5));
+        assertEquals(16, Yatzy.twoPair(3,3,5,4,5));
+        assertEquals(16, Yatzy.twoPair(3,3,5,5,5));
+
     }
 
     @Test
@@ -75,6 +76,7 @@ public class YatzyTest {
     {
         assertEquals(9, Yatzy.threeOfAKind(3,3,3,4,5));
         assertEquals(15, Yatzy.threeOfAKind(5,3,5,4,5));
+        assertEquals(9, Yatzy.threeOfAKind(3,3,3,3,5));
     }
 
     @Test
