@@ -24,10 +24,10 @@ public class Player {
         return categoryList.contains(category);
     }
 
-    public void handleRoll(Category category, Roll roll) {
+    public void handleRoll(Category category, Roll roll) throws Exception {
         if (isCategoryAvailable(category)) {
             score += category.compute(roll);
             categoryList.remove(category);
-        }
+        } else throw new Exception(category + " is not available");
     }
 }
