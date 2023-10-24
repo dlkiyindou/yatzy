@@ -3,64 +3,64 @@ import roll.Roll;
 
 public class Yatzy {
 
-    public static int chance(int d1, int d2, int d3, int d4, int d5) {
-        return Category.CHANCE.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int chance(Roll roll) {
+        return Category.CHANCE.compute(roll);
     }
 
-    public static int yatzy(int d1, int d2, int d3, int d4, int d5) {
-        return Category.YATZY.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int yatzy(Roll roll) {
+        return Category.YATZY.compute(roll);
     }
 
-    public static int ones(int d1, int d2, int d3, int d4, int d5) {
-        return Category.ONES.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int ones(Roll roll) {
+        return Category.ONES.compute(roll);
     }
 
-    public static int twos(int d1, int d2, int d3, int d4, int d5) {
-        return Category.TWOS.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int twos(Roll roll) {
+        return Category.TWOS.compute(roll);
     }
 
-    public static int threes(int d1, int d2, int d3, int d4, int d5) {
-        return Category.THREES.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int threes(Roll roll) {
+        return Category.THREES.compute(roll);
     }
 
-    public static int fours(int d1, int d2, int d3, int d4, int d5) {
-        return Category.FOURS.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int fours(Roll roll) {
+        return Category.FOURS.compute(roll);
     }
 
-    public static int fives(int d1, int d2, int d3, int d4, int d5) {
-        return Category.FIVES.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int fives(Roll roll) {
+        return Category.FIVES.compute(roll);
     }
 
-    public static int sixes(int d1, int d2, int d3, int d4, int d5) {
-        return Category.SIXES.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int sixes(Roll roll) {
+        return Category.SIXES.compute(roll);
     }
 
-    public static int pair(int d1, int d2, int d3, int d4, int d5) {
-        return Category.PAIR.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int pair(Roll roll) {
+        return Category.PAIR.compute(roll);
     }
 
-    public static int twoPairs(int d1, int d2, int d3, int d4, int d5) {
-        return Category.TWO_PAIRS.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int twoPairs(Roll roll) {
+        return Category.TWO_PAIRS.compute(roll);
     }
 
-    public static int threeOfAKind(int d1, int d2, int d3, int d4, int d5) {
-        return Category.THREE_OF_A_KIND.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int threeOfAKind(Roll roll) {
+        return Category.THREE_OF_A_KIND.compute(roll);
     }
 
-    public static int fourOfAKind(int d1, int d2, int d3, int d4, int d5) {
-        return Category.FOUR_OF_A_KIND.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int fourOfAKind(Roll roll) {
+        return Category.FOUR_OF_A_KIND.compute(roll);
     }
 
-    public static int smallStraight(int d1, int d2, int d3, int d4, int d5) {
-        return Category.SMALL_STRAIGHT.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int smallStraight(Roll roll) {
+        return Category.SMALL_STRAIGHT.compute(roll);
     }
 
-    public static int largeStraight(int d1, int d2, int d3, int d4, int d5) {
-        return Category.LARGE_STRAIGHT.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int largeStraight(Roll roll) {
+        return Category.LARGE_STRAIGHT.compute(roll);
     }
 
-    public static int fullHouse(int d1, int d2, int d3, int d4, int d5) {
-        return Category.FULL_HOUSE.compute(new Roll(d1, d2, d3, d4, d5));
+    public static int fullHouse(Roll roll) {
+        return Category.FULL_HOUSE.compute(roll);
     }
 }
 

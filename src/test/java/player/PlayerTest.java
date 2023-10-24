@@ -3,11 +3,9 @@ package player;
 import category.Category;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
-import player.Player;
 import roll.Roll;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
     @SneakyThrows
@@ -39,6 +37,14 @@ public class PlayerTest {
 
         assertEquals(Category.LARGE_STRAIGHT, player.retrieveBestCategory());
         assertEquals(20, player.retrieveBestScore());
+    }
+
+    @Test
+    public void test_play_new_instance() {
+        Player player = Player.builder().build();
+
+        assertNull(player.retrieveBestCategory());
+        assertEquals(0, player.retrieveBestScore());
     }
 
     @SneakyThrows
