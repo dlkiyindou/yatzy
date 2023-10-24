@@ -12,12 +12,16 @@ public class YatzyTest {
     public void test_chance() {
         assertEquals(15, Yatzy.chance(2,3,4,5,1));
         assertEquals(16, Yatzy.chance(3,3,4,5,1));
+        assertEquals(14, Yatzy.chance(1,1,3,3,6));
+        assertEquals(21, Yatzy.chance(4,5,5,6,1));
     }
 
     @Test public void test_yatzy() {
         assertEquals(50, Yatzy.yatzy(4,4,4,4,4));
         assertEquals(50, Yatzy.yatzy(6,6,6,6,6));
         assertEquals(0, Yatzy.yatzy(6,6,6,6,3));
+        assertEquals(50, Yatzy.yatzy(1,1,1,1,1));
+        assertEquals(0, Yatzy.yatzy(1,1,1,2,1));
     }
 
     @Test public void test_ones() {
@@ -25,12 +29,14 @@ public class YatzyTest {
         assertEquals(2, Yatzy.ones(1,2,1,4,5));
         assertEquals(0, Yatzy.ones(6,2,2,4,5));
         assertEquals(4, Yatzy.ones(1,2,1,1,1));
+        assertEquals(0, Yatzy.ones(3,3,3,4,5));
     }
 
     @Test
     public void test_twos() {
         assertEquals(4, Yatzy.twos(1,2,3,2,6));
         assertEquals(10, Yatzy.twos(2,2,2,2,2));
+        assertEquals(4, Yatzy.twos(2,3,2,5,1));
     }
 
     @Test
@@ -45,6 +51,8 @@ public class YatzyTest {
         assertEquals(12, Yatzy.fours(4,4,4,5,5));
         assertEquals(8, Yatzy.fours(4,4,5,5,5));
         assertEquals(4, Yatzy.fours(4,5,5,5,5));
+        assertEquals(8, Yatzy.fours(1,1,2,4,4));
+
     }
 
     @Test
@@ -66,13 +74,21 @@ public class YatzyTest {
         assertEquals(6, Yatzy.pair(3,4,3,5,6));
         assertEquals(10, Yatzy.pair(5,3,3,3,5));
         assertEquals(12, Yatzy.pair(5,3,6,6,5));
+        assertEquals(0, Yatzy.pair(1,2,3,4,5));
+        assertEquals(8, Yatzy.pair(3,3,3,4,4));
+        assertEquals(12, Yatzy.pair(1,1,6,2,6));
+        assertEquals(6, Yatzy.pair(3,3,3,4,1));
+        assertEquals(6, Yatzy.pair(3,3,3,3,1));
     }
 
     @Test
     public void test_twoPairs() {
         assertEquals(16, Yatzy.twoPairs(3,3,5,4,5));
         assertEquals(16, Yatzy.twoPairs(3,3,5,5,5));
-
+        assertEquals(8, Yatzy.twoPairs(1,1,2,3,3));
+        assertEquals(0, Yatzy.twoPairs(1,1,2,3,4));
+        assertEquals(6, Yatzy.twoPairs(1,1,2,2,2));
+        assertEquals(0, Yatzy.twoPairs(3,3,3,3,1));
     }
 
     @Test

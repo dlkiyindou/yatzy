@@ -5,6 +5,8 @@ import roll.Roll;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public enum Category {
@@ -34,7 +36,14 @@ public enum Category {
     TWO_PAIRS {
         @Override
         public int compute(Roll roll) {
-            return xOfAKind(2, roll);
+            Map<Integer, Integer> groupedValues =  groupByValues(roll);
+            var data =  groupedValues.entrySet()
+                .stream()
+                .filter(e -> e.getValue() >= 2)
+                .collect(Collectors.toList());
+
+            return data.size() == 2 ? data.stream().mapToInt(e -> e.getKey()*2).sum() : 0;
+
         }
     },
 
@@ -81,7 +90,7 @@ public enum Category {
                 }
             });
 
-            return twoPosition.get() * 2 + threePosition.get() * 3;
+            return twoPosition.get() != 0 && threePosition.get() != 0 ? twoPosition.get() * 2 + threePosition.get() * 3 : 0;
         }
     },
 
