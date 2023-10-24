@@ -1,6 +1,10 @@
 import category.Category;
 import roll.Roll;
 
+/**
+ * {@code @Deprecated} : use category.Category
+ */
+@Deprecated
 public class Yatzy {
 
     public static int chance(Roll roll) {
