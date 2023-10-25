@@ -8,9 +8,9 @@ import lombok.Getter;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 public class Roll {
-    private Integer one;
-    private Integer two;
-    private Integer three;
-    private Integer four;
-    private Integer five;
+    private Integer diceOne;
+    private Integer diceTwo;
+    private Integer diceThree;
+    private Integer diceFour;
+    private Integer diceFive;
 }

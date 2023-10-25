@@ -10,7 +10,7 @@ import java.util.*;
 @Builder
 public class Player {
     private final List<Category> categoryList = new ArrayList<>(List.of(Category.values()));
-    private Map<Category, Integer> scores = new HashMap<>();
+    private Map<Category, Integer> scores;
 
     public List<Category> getAvailableCategories() {
         return List.copyOf(categoryList);
@@ -27,7 +27,9 @@ public class Player {
         if (isCategoryAvailable(category)) {
             scores.put(category, category.compute(roll));
             categoryList.remove(category);
-        } else throw new Exception(category + " is not available");
+        } else {
+            throw new Exception(String.format("Category %s is not available", category));
+        }
     }
 
     public Category retrieveBestCategory() {

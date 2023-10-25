@@ -12,7 +12,7 @@ public enum Category {
     CHANCE {
         @Override
         public int compute(Roll roll) {
-            return roll.getOne() + roll.getTwo() + roll.getThree() + roll.getFour() + roll.getFive();
+            return roll.getDiceOne() + roll.getDiceTwo() + roll.getDiceThree() + roll.getDiceFour() + roll.getDiceFive();
         }
     },
     YATZY {
@@ -35,8 +35,8 @@ public enum Category {
     TWO_PAIRS {
         @Override
         public int compute(Roll roll) {
-            Map<Integer, Integer> groupedValues =  groupByValues(roll);
-            var data =  groupedValues.entrySet()
+            var data =  groupByValues(roll)
+                .entrySet()
                 .stream()
                 .filter(e -> e.getValue() >= 2)
                 .collect(Collectors.toList());
@@ -129,8 +129,8 @@ public enum Category {
     public abstract int compute(Roll roll);
 
     private static int xOfAKind(int x, Roll roll) {
-        Map<Integer, Integer> groupedValues =  groupByValues(roll);
-        return groupedValues.entrySet()
+        return  groupByValues(roll)
+            .entrySet()
             .stream()
             .filter(e -> e.getValue() >= x)
             .mapToInt(e -> e.getKey()*x)
@@ -140,11 +140,11 @@ public enum Category {
     private static Map<Integer, Integer> groupByValues(Roll roll) {
         Map<Integer, Integer> groupedValues = new HashMap<>();
         Stream.of(
-            roll.getOne(),
-            roll.getTwo(),
-            roll.getThree(),
-            roll.getFour(),
-            roll.getFive()
+            roll.getDiceOne(),
+            roll.getDiceTwo(),
+            roll.getDiceThree(),
+            roll.getDiceFour(),
+            roll.getDiceFive()
         ).forEach(
             d -> groupedValues.compute(d, (k, v) -> v == null ? 1 : v+1)
         );
@@ -154,12 +154,11 @@ public enum Category {
 
     private static int sumByValue(int value, Roll roll) {
         int sum = 0;
-        if (roll.getOne() == value) sum += value;
-        if (roll.getTwo() == value) sum += value;
-        if (roll.getThree() == value) sum += value;
-        if (roll.getFour() == value) sum += value;
-        if (roll.getFive() == value) sum += value;
+        if (roll.getDiceOne() == value) sum += value;
+        if (roll.getDiceTwo() == value) sum += value;
+        if (roll.getDiceThree() == value) sum += value;
+        if (roll.getDiceFour() == value) sum += value;
+        if (roll.getDiceFive() == value) sum += value;
         return sum;
     }
-
 }

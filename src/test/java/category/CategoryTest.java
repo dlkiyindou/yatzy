@@ -1,13 +1,9 @@
 package category;
 
-import category.Category;
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
-import player.Player;
 import roll.Roll;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CategoryTest {
 
